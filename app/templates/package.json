@@ -1,0 +1,59 @@
+{
+  "name": "eat-my-socks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "ngrok": "ngrok http --region eu 8080",
+    "start": "nodemon -w src -d 3 --exec ts-node src/index.ts",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ask-sdk": "^2.0.0",
+    "ask-sdk-core": "^2.0.0",
+    "ask-sdk-dynamodb-persistence-adapter": "^2.0.0",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "compromise": "^11.6.0",
+    "express": "^4.16.3",
+    "moment": "^2.22.1",
+    "natural": "^0.5.6",
+    "reflect-metadata": "^0.1.12",
+    "winston": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.16.8",
+    "@types/express": "^4.11.1",
+    "@types/jest": "^22.2.3",
+    "@types/node": "^9.6.6",
+    "jest": "^22.4.3",
+    "ngrok": "^3.0.1",
+    "nodemon": "^1.17.3",
+    "ts-jest": "^22.4.4",
+    "ts-node": "^6.0.0",
+    "tslint": "^5.9.1",
+    "typescript": "^2.8.1"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/node_modules/reflect-metadata/Reflect.js"
+    ],
+    "testEnvironment": "node",
+    "collectCoverage": false,
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/dist/"
+    ],
+    "transform": {
+      "^.+\\.[jt]sx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    }
+  }
+}

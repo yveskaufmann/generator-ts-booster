@@ -1,0 +1,65 @@
+{
+  "name": "generator-ts-booster",
+  "version": "1.0.0",
+  "description": "Yoeman generator for typescript based projects",
+  "repository": "yveskaufmann/generator-ts-booster",
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "rm -rf $PWD/generators; mkdir -p $PWD/generators/app; rsync -r ./src/app/templates ./generators/app && tsc",
+    "watch": "nodemon -w ./src --delay 4 --exec \"npm run build\"",
+    "test": "jest"
+  },
+  "author": "Yves Kaufmann",
+  "license": "MIT",
+  "keywords": [
+    "yeoman-generator typescript"
+  ],
+  "devDependencies": {
+    "@types/commander": "^2.12.2",
+    "@types/fs-extra": "^5.0.1",
+    "@types/jest": "^22.2.2",
+    "@types/lodash": "^4.14.106",
+    "@types/node": "^8.10.1",
+    "@types/yeoman-generator": "^2.0.2",
+    "@types/yeoman-test": "^1.7.4",
+    "commander": "^2.15.1",
+    "fs-extra": "^5.0.0",
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.2",
+    "ts-jest": "^22.4.2",
+    "ts-node": "^5.0.1",
+    "tslint": "^5.9.1",
+    "typescript": "^2.8.1",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^1.7.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.5",
+    "yeoman-generator": "^2.0.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverage": false,
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/build/",
+      "<rootDir>/src/",
+      "<rootDir>/ci/",
+      "<rootDir>/generators"
+    ],
+    "transform": {
+      "^.+\\.[jt]sx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    }
+  }
+}
