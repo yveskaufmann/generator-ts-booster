@@ -21,7 +21,7 @@ class SkeletonGenerator extends Generator {
       }
     ]).then((answers) => {
       this.props = answers as ProjectProps;
-      this.props.pkgName = capitalize(camelCase(this.props.pkgName));
+      this.props.pkgName = this.props.pkgName;
     });
   }
 
